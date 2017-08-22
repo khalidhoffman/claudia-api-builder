@@ -102,6 +102,7 @@ module.exports = function ApiBuilder(options) {
 						routeParams = routeRegex.exec(routingInfo.path);
 					if (routeParams) {
 						routeHandler = routes[routePath][routingInfo.method];
+						routingInfo.path = routePath;
 						routeKeys.forEach(function (routeKey, idx) {
 							event.pathParams[routeKey] = routeParams[idx + 1];
 						});
